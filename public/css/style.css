@@ -62,6 +62,9 @@ canvas {
     left: 0;
     max-width: 32%;
     padding: 20px; }
+    #ui .info a {
+      color: white;
+      text-decoration: none; }
     #ui .info h3 {
       text-transform: uppercase;
       font-weight: bold;
