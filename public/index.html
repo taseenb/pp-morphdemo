@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Perky Pat - 65K Morph + noise demo</title>
+    <meta property="og:description" content="Three.js + FBO // Morph + noise demo">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <link rel="stylesheet" href="js/vendor/dat.gui.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/85/three.min.js"></script>
+    <script src="js/vendor/BinaryLoader.js"></script>
+    <script src="js/vendor/dat.gui.js"></script>
+    <script src="js/vendor/stats.min.js"></script>
+    <script src="js/fbo.js"></script>
+</head>
+<body class="show-loader">
+
+<div id="loader"></div>
+
+<div id="ui-btn">
+    <span class="show">Show info</span>
+    <span class="hide">Hide info</span>
+</div>
+
+<div id="ui" class="show">
+    <div class="info">
+        <h3>Morph with noise</h3>
+        <p>
+            65K particles morphing through different meshes at 60FPS (even on mobile). The bust is a file exported from Blender, while
+            the other shapes - a cube and a sphere - are just functions. A noise algorithm was used: try changing the <i>amplitude</i> or the speed of the <i>transition</i>.
+            <span class="credits">Perky Pat // Esteban Almiron</span>
+        </p>
+    </div>
+</div>
+
+
+<script src="js/bundle.js"></script>
+</body>
+</html>

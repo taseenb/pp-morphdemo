@@ -1,0 +1,113 @@
+html,
+body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  position: relative;
+  overflow: hidden;
+  background-color: #283844;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 12px; }
+
+canvas {
+  display: block;
+  position: relative;
+  z-index: 1; }
+
+#loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("ring.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition-duration: 1s;
+  background-color: #283844; }
+  .show-loader #loader {
+    opacity: 1; }
+
+#ui {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  box-sizing: border-box;
+  opacity: 0;
+  transition-duration: .4s;
+  transition-property: opacity; }
+  .show-ui #ui {
+    opacity: 1; }
+    .show-ui #ui #stats,
+    .show-ui #ui .info,
+    .show-ui #ui .dg.main {
+      pointer-events: auto; }
+  #ui #stats {
+    padding: 20px; }
+  #ui .dg.main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px; }
+  #ui .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 32%;
+    padding: 20px; }
+    #ui .info h3 {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 12px; }
+    #ui .info p {
+      padding: 0;
+      margin: 0; }
+    #ui .info .credits {
+      display: block;
+      font-size: 10px;
+      padding: 5px 0;
+      text-transform: uppercase;
+      text-decoration: none; }
+
+#ui-btn {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 10px;
+  text-align: center;
+  width: 150px;
+  box-sizing: border-box;
+  transition-property: opacity;
+  transition-duration: .4s;
+  opacity: 0; }
+  .show-ui-btn #ui-btn {
+    opacity: 1; }
+  .show-ui #ui-btn span.show {
+    display: none; }
+  .show-ui #ui-btn span.hide {
+    display: block; }
+  #ui-btn span {
+    white-space: nowrap;
+    padding: 4px 8px;
+    font-weight: bold; }
+    #ui-btn span.show {
+      display: block;
+      background-color: black;
+      color: white; }
+    #ui-btn span.hide {
+      display: none;
+      background-color: white;
+      color: black; }
+
+/*# sourceMappingURL=style.css.map */
