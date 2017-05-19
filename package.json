@@ -11,7 +11,8 @@
     "build:js": "browserify ./src/index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > public/js/bundle.js",
     "build:sass": "sass src/sass/style.scss public/css/style.css",
     "deploy": "npm run build && npm run deploy:upload",
-    "deploy:upload": "surge -p public -d pp-morphdemo.surge.sh"
+    "deploy:upload": "surge -p public -d pp-morphdemo.surge.sh",
+    "pushall": "git add --all . && git commit -m \"update\" && git push"
   },
   "dependencies": {
     "glsl-blend-soft-light": "^1.0.5",
