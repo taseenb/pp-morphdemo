@@ -89,10 +89,8 @@ function init() {
   var height = textureSize;
 
   // BG
-  if (!isMobile.any) {
-    background = createBackground();
-    scene.add(background);
-  }
+  background = createBackground();
+  scene.add(background);
 
   // model
   var dataA = parseMesh(model);
@@ -133,7 +131,7 @@ function init() {
     uniforms: {
       positionsTexture: {type: 't', value: null},
       alpha: {type: 'f', value: 0.5},
-      pointSize: {type: "f", value: 1}
+      pointSize: {type: 'f', value: 1}
     },
     vertexShader: render_vs,
     fragmentShader: render_fs,

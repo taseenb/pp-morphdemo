@@ -6,7 +6,10 @@ module.exports = createBackground;
 
 function createBackground (opt) {
   opt = opt || {}
-  var geometry = opt.geometry || new THREE.PlaneGeometry(2, 2, 1)
+  var geometry = opt.geometry || new THREE.PlaneBufferGeometry(2, 2, 1);
+
+  var orientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+
   var material = new THREE.RawShaderMaterial({
     vertexShader: vert,
     fragmentShader: frag,
@@ -14,24 +17,26 @@ function createBackground (opt) {
     uniforms: {
       aspectCorrection: { type: 'i', value: false },
       aspect: { type: 'f', value: 1 },
-      grainScale: { type: 'f', value: 0.0015 },
+      grainScale: { type: 'f', value: 0.00001 },
       grainTime: { type: 'f', value: 0 },
-      noiseAlpha: { type: 'f', value: 0.8 },
+      noiseAlpha: { type: 'f', value: 0.3 },
       offset: { type: 'v2', value: new THREE.Vector2(0, 0) },
       scale: { type: 'v2', value: new THREE.Vector2(1, 1) },
-      smooth: { type: 'v2', value: new THREE.Vector2(0.0, 0.5) },
+      smooth: { type: 'v2', value: new THREE.Vector2(0.0, orientation === 'landscape' ? 0.5 : 0.9) },
       // color1: { type: 'c', value: new THREE.Color('#e66314') },
       // color1: { type: 'c', value: new THREE.Color('#ce6f13') },
       color1: { type: 'c', value: new THREE.Color('#39abb2') },
       color2: { type: 'c', value: new THREE.Color('#283844') }
     },
     depthTest: false
-  })
-  var mesh = new THREE.Mesh(geometry, material)
-  mesh.frustumCulled = false
-  mesh.style = style
-  if (opt) mesh.style(opt)
-  return mesh
+  });
+
+  var mesh = new THREE.Mesh(geometry, material);
+  mesh.frustumCulled = false;
+  mesh.style = style;
+  if (opt) mesh.style(opt);
+
+  return mesh;
 
   function style (opt) {
     opt = opt || {}
